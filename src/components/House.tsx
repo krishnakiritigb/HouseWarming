@@ -9,11 +9,18 @@ export default function House({ onClick, accentColor = "#f97316" }: HouseProps) 
   return (
     <div className="relative animate-float">
       <svg
-        className="house-svg"
-        width="200"
-        height="200"
+        className="house-svg w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] md:w-[200px] md:h-[200px] cursor-pointer hover:scale-105 transition-transform"
         viewBox="0 0 200 200"
         onClick={onClick}
+        role="button"
+        tabIndex={0}
+        aria-label="Click the house for a surprise"
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            onClick();
+          }
+        }}
       >
         {/* Smoke from chimney */}
         <g className="house-smoke">
@@ -118,9 +125,9 @@ export default function House({ onClick, accentColor = "#f97316" }: HouseProps) 
       </svg>
 
       {/* Sparkles around house */}
-      <div className="absolute -top-2 -left-2 w-3 h-3 rounded-full bg-yellow-400 animate-pulse opacity-60" />
-      <div className="absolute top-10 -right-3 w-2 h-2 rounded-full bg-yellow-300 animate-pulse opacity-50" style={{ animationDelay: "0.5s" }} />
-      <div className="absolute -bottom-1 left-5 w-2 h-2 rounded-full bg-orange-400 animate-pulse opacity-50" style={{ animationDelay: "1s" }} />
+      <div className="absolute -top-1 sm:-top-2 -left-1 sm:-left-2 w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-yellow-400 animate-pulse opacity-60" />
+      <div className="absolute top-8 sm:top-10 -right-2 sm:-right-3 w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-yellow-300 animate-pulse opacity-50" style={{ animationDelay: "0.5s" }} />
+      <div className="absolute -bottom-0.5 sm:-bottom-1 left-4 sm:left-5 w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-orange-400 animate-pulse opacity-50" style={{ animationDelay: "1s" }} />
     </div>
   );
 }

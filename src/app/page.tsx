@@ -96,65 +96,82 @@ function InviteContent() {
         <Confetti key={c.id} big={c.big} onComplete={() => removeConfetti(c.id)} />
       ))}
 
-      {/* Click Counter */}
+      {/* Click Counter - Fixed position feedback */}
       {clickCount > 0 && (
         <div
-          className="fixed top-5 right-5 text-white px-4 py-2 rounded-full text-sm z-50 animate-pop-in"
+          className="fixed top-3 right-3 sm:top-5 sm:right-5 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm z-50 animate-pop-in shadow-lg"
           style={{ backgroundColor: COLORS.accentColor }}
+          role="status"
+          aria-live="polite"
         >
           Keep clicking! {clickCount}/7
         </div>
       )}
 
-      {/* Top Section - Welcome & House */}
-      <div className="text-center pt-8 pb-4 px-5">
+      {/* Welcome Section */}
+      <header className="text-center pt-6 sm:pt-8 pb-3 sm:pb-4 px-4 sm:px-5">
         <p
-          className="font-serif text-xl mb-2 animate-fade-in-down"
+          className="font-serif text-lg sm:text-xl mb-1 sm:mb-2 animate-fade-in-down"
           style={{ color: COLORS.secondaryText }}
         >
           Welcome
         </p>
         <h1
-          className="font-serif text-4xl md:text-5xl font-bold drop-shadow-sm animate-fade-in-down"
+          className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-sm animate-fade-in-down leading-tight"
           style={{ color: COLORS.headingColor }}
         >
           {guestName}
         </h1>
 
-        {/* House Illustration */}
-        <div className="flex flex-col items-center mt-4 animate-pop-in">
+        {/* House Illustration - Interactive Element */}
+        <div className="flex flex-col items-center mt-3 sm:mt-4 animate-pop-in">
           <House onClick={handleHouseClick} accentColor={COLORS.accentColor} />
           <span
-            className="text-sm mt-2 animate-gentle-bounce"
+            className="text-xs sm:text-sm mt-2 animate-gentle-bounce"
             style={{ color: COLORS.secondaryText }}
           >
             Click the house for a surprise!
           </span>
         </div>
+      </header>
+
+      {/* Ganesha header decoration */}
+      <div
+        className="w-full overflow-hidden"
+        role="img"
+        aria-label="Decorative header with Lord Ganesha and traditional ornaments"
+      >
+        <img
+          src="/Baby Shower.jpg"
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+          className="w-full object-cover object-top h-[120px] sm:h-[150px] md:h-[180px] lg:h-[220px]"
+        />
       </div>
 
-      {/* Background image section with card */}
-      <div
-        className="min-h-screen px-5 py-10"
+      {/* Main Content Card */}
+      <section
+        className="px-3 sm:px-4 md:px-6 py-6 md:py-10"
         style={{
-          backgroundImage: `url('/Baby Shower.jpg')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
+          backgroundColor: "#faf5f5",
+          backgroundImage: "linear-gradient(to bottom, #f8f0f0, #faf8f8)",
         }}
+        aria-labelledby="invite-heading"
       >
         <div
-          className="max-w-xl mx-auto rounded-3xl p-6 md:p-8 shadow-xl"
+          className="w-full max-w-xl mx-auto rounded-3xl p-4 sm:p-5 md:p-8 shadow-xl"
           style={{ backgroundColor: COLORS.cardBackground }}
         >
           <h2
-            className="font-serif text-2xl md:text-3xl text-center mb-2"
+            id="invite-heading"
+            className="font-serif text-xl sm:text-2xl md:text-3xl text-center mb-2"
             style={{ color: COLORS.primaryText }}
           >
             You&apos;re Invited!
           </h2>
           <p
-            className="text-center mb-6 text-sm"
+            className="text-center mb-4 text-xs sm:text-sm md:text-base"
             style={{ color: COLORS.secondaryText }}
           >
             Join us for a Housewarming Celebration
@@ -166,23 +183,38 @@ function InviteContent() {
 
           {/* Host Message */}
           <div
-            className="text-center p-6 rounded-2xl mt-6"
+            className="text-center p-3 sm:p-4 md:p-6 rounded-2xl mt-4"
             style={{ backgroundColor: `${COLORS.accentColor}15` }}
           >
             <p
-              className="italic leading-relaxed"
+              className="italic leading-relaxed text-xs sm:text-sm md:text-base"
               style={{ color: COLORS.primaryText }}
             >
               &ldquo;{CONFIG.message}&rdquo;
             </p>
             <p
-              className="mt-3 font-semibold text-sm"
+              className="mt-2 font-semibold text-xs sm:text-sm md:text-base"
               style={{ color: COLORS.headingColor }}
             >
               - {CONFIG.hostNames}
             </p>
           </div>
         </div>
+      </section>
+
+      {/* Krishna footer decoration */}
+      <div
+        className="w-full overflow-hidden"
+        role="img"
+        aria-label="Decorative footer with Baby Krishna and lotus flowers"
+      >
+        <img
+          src="/Baby Shower.jpg"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="w-full object-cover object-bottom h-[140px] sm:h-[170px] md:h-[200px] lg:h-[250px]"
+        />
       </div>
 
       {/* Secret Message Modal */}
