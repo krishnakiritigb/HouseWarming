@@ -109,7 +109,7 @@ function InviteContent() {
       )}
 
       {/* Welcome Section */}
-      <header className="text-center pt-6 sm:pt-8 pb-3 sm:pb-4 px-4 sm:px-5">
+      <header className="text-center pt-6 sm:pt-8 md:pt-2 pb-3 sm:pb-4 md:pb-1 px-4 sm:px-5">
         <p
           className="font-serif text-lg sm:text-xl mb-1 sm:mb-2 animate-fade-in-down"
           style={{ color: COLORS.secondaryText }}
@@ -124,7 +124,7 @@ function InviteContent() {
         </h1>
 
         {/* House Illustration - Interactive Element */}
-        <div className="flex flex-col items-center mt-3 sm:mt-4 animate-pop-in">
+        <div className="flex flex-col items-center mt-3 sm:mt-4 md:mt-1 animate-pop-in md:scale-[0.65] lg:scale-70">
           <House onClick={handleHouseClick} accentColor={COLORS.accentColor} />
           <span
             className="text-xs sm:text-sm mt-2 animate-gentle-bounce"
@@ -222,61 +222,86 @@ function InviteContent() {
 
       {/* ===== DESKTOP LAYOUT (>= md) ===== */}
       <div className="hidden md:block">
+        {/* Ganesha header decoration - larger for desktop */}
         <div
-          className="relative min-h-screen"
-          style={{
-            backgroundImage: `url('/Baby Shower.jpg')`,
-            backgroundSize: "contain",
-            backgroundPosition: "top center",
-            backgroundRepeat: "no-repeat",
-            backgroundColor: "#faf5f5",
-          }}
+          className="w-full overflow-hidden"
+          role="img"
+          aria-label="Decorative header with Lord Ganesha and traditional ornaments"
         >
-          {/* Card positioned in the center */}
-          <div className="flex items-center justify-center min-h-screen px-6 py-12">
-            <div
-              className="w-full max-w-xl rounded-3xl p-8 shadow-xl"
-              style={{ backgroundColor: COLORS.cardBackground }}
-              aria-labelledby="invite-heading-desktop"
+          <img
+            src="/Baby Shower.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            className="w-full object-cover object-top h-[380px] lg:h-[450px] xl:h-[520px]"
+          />
+        </div>
+
+        {/* Main Content Card */}
+        <section
+          className="px-6 lg:px-8 py-10 lg:py-12"
+          style={{
+            backgroundColor: "#faf5f5",
+            backgroundImage: "linear-gradient(to bottom, #f8f0f0, #faf8f8)",
+          }}
+          aria-labelledby="invite-heading-desktop"
+        >
+          <div
+            className="w-full max-w-2xl mx-auto rounded-3xl p-8 lg:p-10 shadow-xl"
+            style={{ backgroundColor: COLORS.cardBackground }}
+          >
+            <h2
+              id="invite-heading-desktop"
+              className="font-serif text-3xl lg:text-4xl text-center mb-3"
+              style={{ color: COLORS.primaryText }}
             >
-              <h2
-                id="invite-heading-desktop"
-                className="font-serif text-3xl text-center mb-2"
+              You&apos;re Invited!
+            </h2>
+            <p
+              className="text-center mb-6 text-base lg:text-lg"
+              style={{ color: COLORS.secondaryText }}
+            >
+              Join us for a Housewarming Celebration
+            </p>
+
+            <EventDetails colors={COLORS} />
+            <MapSection colors={COLORS} />
+            <CalendarSection colors={COLORS} />
+
+            {/* Host Message */}
+            <div
+              className="text-center p-6 lg:p-8 rounded-2xl mt-6"
+              style={{ backgroundColor: `${COLORS.accentColor}15` }}
+            >
+              <p
+                className="italic leading-relaxed text-base lg:text-lg"
                 style={{ color: COLORS.primaryText }}
               >
-                You&apos;re Invited!
-              </h2>
-              <p
-                className="text-center mb-6 text-base"
-                style={{ color: COLORS.secondaryText }}
-              >
-                Join us for a Housewarming Celebration
+                &ldquo;{CONFIG.message}&rdquo;
               </p>
-
-              <EventDetails colors={COLORS} />
-              <MapSection colors={COLORS} />
-              <CalendarSection colors={COLORS} />
-
-              {/* Host Message */}
-              <div
-                className="text-center p-6 rounded-2xl mt-6"
-                style={{ backgroundColor: `${COLORS.accentColor}15` }}
+              <p
+                className="mt-3 font-semibold text-base lg:text-lg"
+                style={{ color: COLORS.headingColor }}
               >
-                <p
-                  className="italic leading-relaxed text-base"
-                  style={{ color: COLORS.primaryText }}
-                >
-                  &ldquo;{CONFIG.message}&rdquo;
-                </p>
-                <p
-                  className="mt-3 font-semibold text-base"
-                  style={{ color: COLORS.headingColor }}
-                >
-                  - {CONFIG.hostNames}
-                </p>
-              </div>
+                - {CONFIG.hostNames}
+              </p>
             </div>
           </div>
+        </section>
+
+        {/* Krishna footer decoration - larger for desktop */}
+        <div
+          className="w-full overflow-hidden"
+          role="img"
+          aria-label="Decorative footer with Baby Krishna and lotus flowers"
+        >
+          <img
+            src="/Baby Shower.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="w-full object-cover object-bottom h-[450px] lg:h-[520px] xl:h-[600px]"
+          />
         </div>
       </div>
 
