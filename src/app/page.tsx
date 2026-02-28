@@ -134,54 +134,53 @@ function InviteContent() {
       </div>
 
       {/* Background image section with card */}
-      <div className="relative">
-        <img
-          src="/Baby Shower.jpg"
-          alt=""
-          className="w-full h-auto"
-        />
-
-        {/* Card overlay on the image */}
-        <div className="absolute inset-0 flex items-center justify-center px-5 py-10 overflow-y-auto">
-          <div
-            className="max-w-xl w-full rounded-3xl p-6 md:p-8 shadow-xl card-hover"
-            style={{ backgroundColor: COLORS.cardBackground }}
+      <div
+        className="min-h-screen px-5 py-10"
+        style={{
+          backgroundImage: `url('/Baby Shower.jpg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div
+          className="max-w-xl mx-auto rounded-3xl p-6 md:p-8 shadow-xl"
+          style={{ backgroundColor: COLORS.cardBackground }}
+        >
+          <h2
+            className="font-serif text-2xl md:text-3xl text-center mb-2"
+            style={{ color: COLORS.primaryText }}
           >
-            <h2
-              className="font-serif text-2xl md:text-3xl text-center mb-2"
+            You&apos;re Invited!
+          </h2>
+          <p
+            className="text-center mb-6 text-sm"
+            style={{ color: COLORS.secondaryText }}
+          >
+            Join us for a Housewarming Celebration
+          </p>
+
+          <EventDetails colors={COLORS} />
+          <MapSection colors={COLORS} />
+          <CalendarSection colors={COLORS} />
+
+          {/* Host Message */}
+          <div
+            className="text-center p-6 rounded-2xl mt-6"
+            style={{ backgroundColor: `${COLORS.accentColor}15` }}
+          >
+            <p
+              className="italic leading-relaxed"
               style={{ color: COLORS.primaryText }}
             >
-              You&apos;re Invited!
-            </h2>
-            <p
-              className="text-center mb-6 text-sm"
-              style={{ color: COLORS.secondaryText }}
-            >
-              Join us for a Housewarming Celebration
+              &ldquo;{CONFIG.message}&rdquo;
             </p>
-
-            <EventDetails colors={COLORS} />
-            <MapSection colors={COLORS} />
-            <CalendarSection colors={COLORS} />
-
-            {/* Host Message */}
-            <div
-              className="text-center p-6 rounded-2xl mt-6"
-              style={{ backgroundColor: `${COLORS.accentColor}15` }}
+            <p
+              className="mt-3 font-semibold text-sm"
+              style={{ color: COLORS.headingColor }}
             >
-              <p
-                className="italic leading-relaxed"
-                style={{ color: COLORS.primaryText }}
-              >
-                &ldquo;{CONFIG.message}&rdquo;
-              </p>
-              <p
-                className="mt-3 font-semibold text-sm"
-                style={{ color: COLORS.headingColor }}
-              >
-                - {CONFIG.hostNames}
-              </p>
-            </div>
+              - {CONFIG.hostNames}
+            </p>
           </div>
         </div>
       </div>
