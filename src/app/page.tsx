@@ -148,7 +148,7 @@ function InviteContent() {
             alt=""
             aria-hidden="true"
             loading="eager"
-            className="w-full object-cover object-top h-[120px] sm:h-[150px]"
+            className="w-full object-cover object-top h-[200px] sm:h-[240px]"
           />
         </div>
 
@@ -215,7 +215,7 @@ function InviteContent() {
             alt=""
             aria-hidden="true"
             loading="lazy"
-            className="w-full object-cover object-bottom h-[140px] sm:h-[170px]"
+            className="w-full object-cover object-bottom h-[220px] sm:h-[260px]"
           />
         </div>
       </div>
