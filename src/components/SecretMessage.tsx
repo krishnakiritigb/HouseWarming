@@ -17,16 +17,21 @@ export default function SecretMessage({
 
   return (
     <div
-      className="fixed inset-0 z-[1000] flex items-center justify-center p-4"
-      style={{ left: 0, right: 0, top: 0, bottom: 0 }}
+      className="fixed z-[1000]"
+      style={{ top: 0, left: 0, right: 0, bottom: 0, width: '100%', height: '100%' }}
       onClick={onClose}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 animate-fade-in" />
 
-      {/* Modal */}
+      {/* Modal - centered with absolute + transform */}
       <div
-        className="relative bg-white p-8 rounded-2xl shadow-2xl text-center animate-scale-in w-[85vw] max-w-[320px]"
+        className="absolute bg-white p-8 rounded-2xl shadow-2xl text-center animate-scale-in w-[85vw] max-w-[320px]"
+        style={{
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)'
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="font-serif text-xl text-orange-500 mb-3">{title}</h2>
